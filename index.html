@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Animated Golu Background</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #111;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+
+    .name {
+      position: absolute;
+      color: #ffffff20;
+      font-size: 40px;
+      animation: float 5s infinite ease-in-out;
+      white-space: nowrap;
+    }
+
+    @keyframes float {
+      0%   { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+      50%  { transform: translateY(-30px) rotate(5deg); opacity: 0.6; }
+      100% { transform: translateY(0px) rotate(-5deg); opacity: 0.3; }
+    }
+
+    .emoji {
+      font-size: 50px;
+      position: absolute;
+      animation: float-emoji 6s infinite ease-in-out;
+    }
+
+    @keyframes float-emoji {
+      0%   { transform: translateY(0); opacity: 0.3; }
+      50%  { transform: translateY(-20px); opacity: 0.9; }
+      100% { transform: translateY(0); opacity: 0.3; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Repeating Animated Names -->
+  <script>
+    for (let i = 0; i < 40; i++) {
+      const name = document.createElement('div');
+      name.className = 'name';
+      name.style.top = `${Math.random() * 100}vh`;
+      name.style.left = `${Math.random() * 100}vw`;
+      name.style.fontSize = `${20 + Math.random() * 30}px`;
+      name.style.animationDuration = `${3 + Math.random() * 4}s`;
+      name.innerText = 'Golu';
+      document.body.appendChild(name);
+    }
+
+    const emojis = ['🔥','💪','✨','🕊️','🧠','🌟'];
+    for (let i = 0; i < 10; i++) {
+      const emoji = document.createElement('div');
+      emoji.className = 'emoji';
+      emoji.style.top = `${Math.random() * 100}vh`;
+      emoji.style.left = `${Math.random() * 100}vw`;
+      emoji.innerText = emojis[i % emojis.length];
+      emoji.style.animationDuration = `${3 + Math.random() * 3}s`;
+      document.body.appendChild(emoji);
+    }
+  </script>
+
+</body>
+</html>
